@@ -1,0 +1,11 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'work_container'
+    tty: true
+    volumes:
+      - ./scripts:/root/scripts
+    ports:
+      - 8080:8080
