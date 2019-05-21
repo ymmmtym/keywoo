@@ -1,4 +1,4 @@
-# VM init
+# VM init for CentOS 7
 ## local machine
 ```
 $ scp ~/.ssh/id_rsa ${target_machine}:~/.ssh/
