@@ -1,16 +1,12 @@
 FROM python:3
 MAINTAINER yumemo
-
 WORKDIR /root
-
-ENV HOSTNAME localhost
+ENV HOSTNAME="work-container" \
+    PS1='[\u@\h \W]# '
 ADD requirements.in /root/requirements.in
-
-RUN echo "export PS1='[\u@\h \W]# '" >> /etc/profile
-RUN apt-get update
-
-RUN pip install --upgrade pip
-RUN pip install --upgrade setuptools
-RUN pip install pip-tools
-RUN pip-compile /root/requirements.in
-RUN pip-sync
+RUN apt-get update && \
+    pip install --upgrade pip && \
+    pip install --upgrade setuptools && \
+    pip install pip-tools && \
+    pip-compile /root/requirements.in && \
+    pip-sync

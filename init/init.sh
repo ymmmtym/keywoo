@@ -12,4 +12,5 @@ git config --global alias.ct commit
 git config --global alias.co checkout
 git config --global alias.reh "reset --hard HEAD^"
 
+# bash
 cat ./bash_alias.txt >> ~/.bashrc
