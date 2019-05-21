@@ -2,9 +2,10 @@ version: '3'
 services:
   python3:
     restart: always
-    build: .
+    build: ./python3
     container_name: work-container
     hostname: work-container
     tty: true
     volumes:
       - ./scripts:/root/scripts
+  web:

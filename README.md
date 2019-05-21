@@ -1,5 +1,6 @@
 # VM init for CentOS 7
 ## local machine
+
 ```
 $ scp ~/.ssh/id_rsa ${target_machine}:~/.ssh/
 ```
@@ -13,7 +14,7 @@ $ sudo mkswap /swapfile
 $ sudo swapon /swapfile
 $ sudo sed -i '$ a /swapfile                                 swap                    swap    defaults        0 0' /etc/fstab
 ```
-### install packages
+### install packages and setting
 ```
 $ sudo yum -y update
 $ sudo yum -y upgrade
@@ -25,7 +26,7 @@ $ sudo gpasswd -a ${USER} docker
 $ sudo systemctl restart docker
 ```
 
-### run setting shell
+### work on repo
 ```
 $ git clone git@github.com:yumemo/yumemo_env.git
 $ cd yumemo_env/init
