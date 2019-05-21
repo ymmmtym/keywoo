@@ -27,5 +27,5 @@ $ sudo yum -y install docker-compose
 $ git clone git@github.com:yumemo/yumemo_env.git
 $ cd yumemo_env/init
 $ bash init.sh
-# require modifying your name and email
 ```
+*require modifying your name and email
