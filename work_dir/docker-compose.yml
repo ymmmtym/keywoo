@@ -8,6 +8,3 @@ services:
     tty: true
     volumes:
       - ./scripts:/root/scripts
-    ports:
-      - 80:80
-      - 443:443
