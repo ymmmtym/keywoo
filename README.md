@@ -20,6 +20,9 @@ $ sudo yum -y upgrade
 $ sudo yum -y install git
 $ sudo yum -y install docker
 $ sudo yum -y install docker-compose
+$ sudo groupadd docker
+$ sudo gpasswd -a ${USER} docker
+$ sudo systemctl restart docker
 ```
 
 ### run setting shell
