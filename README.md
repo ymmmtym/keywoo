@@ -28,7 +28,7 @@ $ sudo systemctl restart docker
 
 ### work on repo
 ```
-$ git clone git@github.com:yumemo/yumemo_env.git
+$ git clone git@github.com:yumemo/python_env.git
 $ cd yumemo_env/init
 $ bash init.sh
 ```
