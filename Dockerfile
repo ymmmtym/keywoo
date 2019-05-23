@@ -1,7 +1,7 @@
 FROM python:3
 MAINTAINER yumemo
 WORKDIR /root
-ENV HOSTNAME="work-container" \
+ENV HOSTNAME="flask-container" \
     PS1="[\u@\h \W]# "
 ADD requirements.in /root/requirements.in
 RUN apt-get update && \

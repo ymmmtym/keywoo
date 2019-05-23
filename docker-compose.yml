@@ -3,8 +3,8 @@ services:
   flask:
     restart: always
     build: .
-    container_name: work-container
-    hostname: work-container
+    container_name: flask-container
+    hostname: flask-container
     tty: true
     volumes:
       - ./app:/root/app
