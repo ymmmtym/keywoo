@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Hello</h1>
+  {% for name in names: %}
+    <p>{{ "Hello" + name}}</p>
+  {% endfor %}
+{% endblock %}
