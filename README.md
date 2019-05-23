@@ -1,35 +1,22 @@
-# VM init for CentOS 7
-## local machine
-
+# Operation
+#### コンテナの起動
 ```
-$ scp ~/.ssh/id_rsa ${target_machine}:~/.ssh/
+$ docker-compose up -d --build
 ```
-
-## VM
-### setting swap
+#### コンテナ内でbashを実行
 ```
-$ sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
-$ sudo chmod 600 /swapfile
-$ sudo mkswap /swapfile
-$ sudo swapon /swapfile
-$ sudo sed -i '$ a /swapfile                                 swap                    swap    defaults        0 0' /etc/fstab
+$ docker-compose exec python3 /bin/bash
+or
+$ docker exec -it work-container /bin/bash
 ```
-### install packages and setting
+#### コンテナ削除
 ```
-$ sudo yum -y update
-$ sudo yum -y upgrade
-$ sudo yum -y install git
-$ sudo yum -y install docker
-$ sudo yum -y install docker-compose
-$ sudo groupadd docker
-$ sudo gpasswd -a ${USER} docker
-$ sudo systemctl restart docker
+$ docker-compose down
 ```
 
-### work on repo
-```
-$ git clone git@github.com:yumemo/python_env.git
-$ cd yumemo_env/init
-$ bash init.sh
-```
-*require modifying your name and email
+必要なライブラリが増えてきた場合は、
+リポジトリに仮想環境ディレクトリを保存してマウントさせるか検討
+
+
+### Reference
+https://tech.plaid.co.jp/tutorial-for-docker-beginners/
