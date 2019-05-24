@@ -7,7 +7,7 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def index():
-    names = ["json", "form"]
+    names = ["json", "search_engine"]
     return render_template("index.html", names = names)
 
 @app.route('/json')
@@ -16,12 +16,12 @@ def test():
         "message": "test"
     })
 
-@app.route('/form')
-def form():
-    return render_template("form.html")
+@app.route('/search_engine')
+def search_engine():
+    return render_template("search_engine.html")
 
-@app.route('/result', methods=["GET", "POST"])
-def result():
+@app.route('/search_result', methods=["GET", "POST"])
+def search_result():
     search_dic = {
         "Google": "https://www.google.com/search?q=",
         "Amazon": "https://www.amazon.co.jp/s?k=",
@@ -30,9 +30,10 @@ def result():
         "Spotify": "https://open.spotify.com/search/results/",
         "Discogs": "https://www.discogs.com/ja/search/?q="
     }
+
     if request.form["search"]:
         search_str = str(request.form["search"])
-        return render_template("result.html", search_str = search_str, search_dic = search_dic)
+        return render_template("search_result.html", search_str = search_str, search_dic = search_dic)
     else:
         return render_template("error.html")
 
