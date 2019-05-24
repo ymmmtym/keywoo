@@ -1,3 +1,11 @@
-body {padding: 10px;}
-h1 {text-align: center;}
-p {text-align: center;}
+body {
+  padding: 16px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}

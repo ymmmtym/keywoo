@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+{% block content %}
+  <p>ヤフオク：<a href="https://auctions.yahoo.co.jp/search/search?p={{ search_str }}" target="_blank">{{ search_str }}</a></p>
+  <p>Google：<a href="https://www.google.com/search?q={{ search_str }}" target="_blank">{{ search_str }}</a></p>
+{% endblock %}

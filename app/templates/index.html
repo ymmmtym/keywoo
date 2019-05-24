@@ -2,7 +2,6 @@
 {% block content %}
   <h1>Hello</h1>
   {% for name in names: %}
-    <p>{{ "Hello " + name}}</p>
+    <p><a href="./{{ name }}">{{ name }}</a></p>
   {% endfor %}
-  <p>test</p>
 {% endblock %}
