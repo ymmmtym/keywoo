@@ -5,9 +5,9 @@ $ docker-compose up -d --build
 ```
 #### コンテナ内でbashを実行
 ```
-$ docker-compose exec python3 /bin/bash
+$ docker-compose exec flask /bin/bash
 or
-$ docker exec -it work-container /bin/bash
+$ docker exec -it flask-container /bin/bash
 ```
 #### コンテナ削除
 ```
