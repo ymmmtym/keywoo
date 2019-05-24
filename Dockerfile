@@ -3,7 +3,7 @@ MAINTAINER yumemo
 WORKDIR /root
 ENV HOSTNAME="flask-container" \
     PS1="[\u@\h \W]# "
-ADD ["requiremets.in", "/root/requirements.in"]
+ADD ["./requiremets.in", "/root/requirements.in"]
 RUN apt-get update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
