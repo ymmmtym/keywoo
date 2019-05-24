@@ -1,13 +1,11 @@
-from flask import *
-import requests
-from bs4 import BeautifulSoup
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def index():
-    names = ["json", "form"]
+    names = ["json", "form", "result"]
     return render_template("index.html", names = names)
 
 @app.route('/json')
@@ -26,4 +24,4 @@ def result():
     return render_template("result.html", search_str = search_str)
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0',port=5000, debug=True, threaded=True)
+  app.run(host='0.0.0.0',port=5000,threaded=True)
