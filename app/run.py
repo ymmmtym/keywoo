@@ -22,9 +22,15 @@ def form():
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
+    search_dic = {
+        "Google": "https://www.google.com/search?q=",
+        "Amazon": "https://www.amazon.co.jp/s?k=",
+        "Rakuten": "https://search.rakuten.co.jp/search/mall/",
+        "Discogs": "https://www.discogs.com/ja/search/?q="
+    }
     if request.form["search"]:
         search_str = str(request.form["search"])
-        return render_template("result.html", search_str = search_str)
+        return render_template("result.html", search_str = search_str, search_dic = search_dic)
     else:
         return render_template("error.html")
 

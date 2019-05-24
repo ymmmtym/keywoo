@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-  <p>ヤフオク：<a href="https://auctions.yahoo.co.jp/search/search?p={{ search_str }}" target="_blank">{{ search_str }}</a></p>
-  <p>Google：<a href="https://www.google.com/search?q={{ search_str }}" target="_blank">{{ search_str }}</a></p>
-  <p>discogs：<a href="https://www.discogs.com/ja/search/?q={{ search_str }}" target="_blank">{{ search_str }}</a></p>
+  {% for k,v in search_dic.items(): %}
+    <p>{{ k + ": "}}<a href="{{v + search_str }}" target="_blank">{{ search_str }}</a></p>
+  {% endfor %}
 {% endblock %}
