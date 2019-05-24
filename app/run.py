@@ -27,6 +27,7 @@ def result():
         "Amazon": "https://www.amazon.co.jp/s?k=",
         "Rakuten": "https://search.rakuten.co.jp/search/mall/",
         "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?p=",
+        "Spotify": "https://open.spotify.com/search/results/",
         "Discogs": "https://www.discogs.com/ja/search/?q="
     }
     if request.form["search"]:
