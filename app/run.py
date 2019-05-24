@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+#!/usr/bin/python
+
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
