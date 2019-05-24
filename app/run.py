@@ -7,7 +7,7 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def index():
-    names = ["json", "form", "result"]
+    names = ["json", "form", "calculator"]
     return render_template("index.html", names = names)
 
 @app.route('/json')
@@ -22,8 +22,11 @@ def form():
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
-    search_str = str(request.form["search"])
-    return render_template("result.html", search_str = search_str)
+    if request.methods == 'POST':
+        search_str = str(request.form["search"])
+        return render_template("result.html", search_str = search_str)
+    else:
+        return render_template("error.html")
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=5000,threaded=True)
