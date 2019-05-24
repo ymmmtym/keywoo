@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
   <h1>検索エンジン</h1>
-  <form action="/result" method="post">
-    <label for="search">検索</label>
-    <input type="text" name="search">
-    <button type="submit" name="button">送信</button>
-  </form>
+  <div class="container">
+    <form action="/result" method="post">
+      <label for="search">検索</label>
+      <input type="text" name="search">
+      <button type="submit" name="button">送信</button>
+    </form>
+  </div>
 {% endblock %}
