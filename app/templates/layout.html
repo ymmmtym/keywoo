@@ -14,5 +14,13 @@
     {% block content %}
     {% endblock %}
     <p><a href="/">TOPへ戻る</a></p>
+    <script type="text/javascript">
+      $(function(){
+        if($('h1')){
+          $('h1').hide()
+          $('h1').fedeIn()
+        }
+      })
+    </script>
   </body>
 </html>
