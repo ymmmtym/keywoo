@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='header.js') }}">
+
+    </script>
     <title>index</title>
     <style></style>
   </head>
@@ -14,13 +17,5 @@
     {% block content %}
     {% endblock %}
     <p><a href="/">TOPへ戻る</a></p>
-    <script type="text/javascript">
-      $(function(){
-        if($('h1')){
-          $('h1').hide()
-          $('h1').fedeIn()
-        }
-      })
-    </script>
   </body>
 </html>
