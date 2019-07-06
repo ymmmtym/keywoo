@@ -26,7 +26,8 @@ def search_result():
         "Google": "https://www.google.com/search?q=",
         "Amazon": "https://www.amazon.co.jp/s?k=",
         "Rakuten": "https://search.rakuten.co.jp/search/mall/",
-        "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?auccat=22260&p=",
+        "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?p=",
+        "Yahoo Auctions(record)": "https://auctions.yahoo.co.jp/search/search?auccat=22260&p=",
         "Spotify": "https://open.spotify.com/search/results/",
         "Discogs": "https://www.discogs.com/ja/search/?q="
     }
