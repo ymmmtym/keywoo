@@ -4,7 +4,7 @@ WORKDIR /root
 ENV HOSTNAME="flask-container" \
     PS1="[\u@\h \W]# "
 ADD ["requirements.in", "/root/requirements.in"]
-RUN apt-get update && \
+RUN apt-get -y update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
     pip install pip-tools && \
