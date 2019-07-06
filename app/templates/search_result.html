@@ -3,4 +3,5 @@
   {% for k,v in search_dic.items(): %}
     <p>{{ k + ": "}}<a href="{{v + search_str }}" target="_blank">{{ search_str }}</a></p>
   {% endfor %}
+  <p><a href="./{{ search_engine }}">検索画面に戻る</a></p>
 {% endblock %}
