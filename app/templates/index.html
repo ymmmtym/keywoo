@@ -1,8 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1>Hello</h1>
+  <h1>Top Page</h1>
+  <h2>internal links</h2>
+  <ul class="list-group">
   {% for name in names: %}
-    <p><a href="./{{ name }}">{{ name }}</a></p>
+    <li class="list-group-item"><a href="/{{ name }}">{{ name }}</a></li>
   {% endfor %}
-  <p><a href="http://localhost:3000">rails</a></p>
+  </ul>
+  <h2>external links</h2>
+  <ul class="list-group">
+    <li class="list-group-item"><a href="http://localhost:3000">rails</a></li>
+  </ul>
 {% endblock %}

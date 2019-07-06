@@ -7,8 +7,8 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def index():
-    names = ["json", "search_engine"]
-    return render_template("index.html", names = names)
+    internal_links = ["json", "search_engine"]
+    return render_template("index.html", names = internal_links)
 
 @app.route('/json')
 def test():
