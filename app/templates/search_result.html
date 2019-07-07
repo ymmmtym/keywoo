@@ -4,10 +4,11 @@
     window_list = {{ search_list|tojson }}
     function openwindow(link){
       for (i = 0;i < window_list.length;i++){
-        window.open(`${link} + ${window_list[i]}`, '_blank');
+        window.open(`${link}+${window_list[i]}`, '_blank');
       }
     }
   </script>
+
   <table class="table text-nowrap">
     <caption>検索結果</caption>
     <thead class="thead-dark">
