@@ -24,6 +24,7 @@ def search_engine():
 def search_result():
     search_dic = {
         "Google": "https://www.google.com/search?q=",
+        "Weblio English": "https://ejje.weblio.jp/content/",
         "Amazon": "https://www.amazon.co.jp/s?k=",
         "Rakuten": "https://search.rakuten.co.jp/search/mall/",
         "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?p=",
@@ -34,7 +35,8 @@ def search_result():
 
     if request.form["search"]:
         search_str = str(request.form["search"])
-        return render_template("search_result.html", search_str = search_str, search_dic = search_dic)
+        search_list = search_str.splitlines()
+        return render_template("search_result.html", search_list = search_list, search_dic = search_dic)
     else:
         return render_template("error.html")
 

@@ -1,7 +1,38 @@
 {% extends "layout.html" %}
 {% block content %}
-  {% for k,v in search_dic.items(): %}
-    <p>{{ k + ": "}}<a href="{{v + search_str }}" target="_blank">{{ search_str }}</a></p>
-  {% endfor %}
-  <p><a href="/{{ search_engine }}">検索画面に戻る</a></p>
+  <script type="text/javascript">
+    window_list = {{ search_list|tojson }}
+    function openwindow(link){
+      for (i = 0;i < window_list.length;i++){
+        window.open(`${link} + ${window_list[i]}`, '_blank');
+      }
+    }
+  </script>
+  <table class="table text-nowrap">
+    <caption>検索結果</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        {% for k,v in search_dic.items(): %}
+          <th scope="col">{{ k }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in search_list: %}
+      <tr>
+        <th scope="row">{{ item }}</th>
+        {% for k,v in search_dic.items(): %}
+          <td><a href="{{v + item }}" target="_blank">{{ item }}</a></td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      <tr>
+        <th scope="row">Open All link</th>
+        {% for k,v in search_dic.items(): %}
+            <td><input type="button" value="Open All" onClick="openwindow('{{ v }}');"></td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
 {% endblock %}
