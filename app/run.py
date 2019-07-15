@@ -17,14 +17,19 @@ search_dic = {
     "Discogs": "https://www.discogs.com/ja/search/?q="
 }
 
+content_dic = {
+    "search_sites": "Search Sites",
+    "search_engine": "Search Engine",
+}
+
+
 @app.route('/')
 def index():
-    internal_links = ["search_site", "search_engine"]
-    return render_template("index.html", names = internal_links)
+    return render_template("index.html", content_dic = content_dic)
 
-@app.route('/search_site')
-def test():
-    return jsonify(search_dic)
+@app.route('/search_sites')
+def search_site():
+    return render_template("search_sites.html", search_dic = search_dic)
 
 @app.route('/search_engine')
 def search_engine():

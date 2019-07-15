@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1>検索エンジン</h1>
+  <h1>Search Engine</h1>
   <div class="container">
     <form action="/search_result" method="post">
-      <p><label for="search">検索：</label></p>
+      <p><label for="search">Search:</label></p>
       <p><textarea type="text" name="search" rows="8" cols="80"></textarea></p>
-      <p><button type="submit" name="button">送信</button></p>
+      <p><button type="submit" name="button">Submit</button></p>
     </form>
   </div>
 {% endblock %}

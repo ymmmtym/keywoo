@@ -9,7 +9,7 @@ exec ash in container
 ```
 docker-compose exec flask /bin/ash
 # or
-docker exec -it flask-container /bin/aash
+docker exec -it flask-container /bin/ash
 ```
 
 remove container

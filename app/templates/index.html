@@ -3,8 +3,8 @@
   <h1>Top Page</h1>
   <h2>internal links</h2>
   <ul class="list-group">
-  {% for name in names: %}
-    <li class="list-group-item"><a href="/{{ name }}">{{ name }}</a></li>
+  {% for k,v in content_dic.items(): %}
+    <li class="list-group-item"><a href="/{{ k }}">{{ v }}</a></li>
   {% endfor %}
   </ul>
   <h2>external links</h2>

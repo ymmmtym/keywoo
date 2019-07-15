@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Search Site</h1>
+  <table class="table text-nowrap">
+    <caption>Search Site</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>Search Site</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for k,v in search_dic.items(): %}
+      <tr>
+        <td>{{k}}</td>
+        <td>{{v}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
