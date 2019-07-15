@@ -1,14 +1,29 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1>Top Page</h1>
-  <h2>internal links</h2>
-  <ul class="list-group">
-  {% for k,v in content_dic.items(): %}
-    <li class="list-group-item"><a href="/{{ k }}">{{ v }}</a></li>
-  {% endfor %}
-  </ul>
-  <h2>external links</h2>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="javascript:location.href ='http://' + location.hostname + ':3000';">rails</a></li>
-  </ul>
+  <h1>Keywoo</h1>
+  <div class="container">
+    <form action="/search_result" method="post">
+      <h2>Search</h2>
+      <p><textarea type="text" name="search" rows="8" cols="80"></textarea></p>
+      <p><button type="submit" name="button">Submit</button></p>
+    </form>
+  </div>
+  <h2>Search Site</h2>
+  <table class="table text-nowrap">
+    <caption>Search Site</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>Search Site</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for k,v in search_dic.items(): %}
+      <tr>
+        <td>{{k}}</td>
+        <td>{{v}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

@@ -1,12 +1,11 @@
 version: '3'
 services:
-  flask:
+  keywoo:
     build: .
-    container_name: flask-container
-    hostname: flask-container
+    container_name: keywoo-container
+    hostname: keywoo-container
     tty: true
     volumes:
       - ./app:/root/app
-      - ./scripts:/root/scripts
     ports:
-      - "5000:5000"
+      - "80:80"

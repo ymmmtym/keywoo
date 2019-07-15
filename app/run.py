@@ -25,15 +25,7 @@ content_dic = {
 
 @app.route('/')
 def index():
-    return render_template("index.html", content_dic = content_dic)
-
-@app.route('/search_sites')
-def search_site():
-    return render_template("search_sites.html", search_dic = search_dic)
-
-@app.route('/search_engine')
-def search_engine():
-    return render_template("search_engine.html")
+    return render_template("index.html", search_dic = search_dic)
 
 @app.route('/search_result', methods=["GET", "POST"])
 def search_result():
@@ -43,7 +35,7 @@ def search_result():
         search_list = search_text.splitlines()
         return render_template("search_result.html", search_list = search_list, search_dic = search_dic)
     else:
-        return render_template("error.html")
+        return render_template("search_error.html")
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0',port=5000,threaded=True)
+  app.run(host='0.0.0.0',port=80,threaded=True)
