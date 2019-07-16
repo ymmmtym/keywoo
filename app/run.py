@@ -1,41 +1,31 @@
 #!/usr/bin/python
 
 from flask import Flask, render_template, request, jsonify
+import json
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-# common setting
-search_dic = {
-    "Google": "https://www.google.com/search?q=",
-    "Weblio English": "https://ejje.weblio.jp/content/",
-    "Amazon": "https://www.amazon.co.jp/s?k=",
-    "Rakuten": "https://search.rakuten.co.jp/search/mall/",
-    "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?p=",
-    "Yahoo Auctions(record)": "https://auctions.yahoo.co.jp/search/search?auccat=22260&p=",
-    "Spotify": "https://open.spotify.com/search/results/",
-    "Discogs": "https://www.discogs.com/ja/search/?q="
-}
-
-content_dic = {
-    "search_sites": "Search Sites",
-    "search_engine": "Search Engine",
-}
+with open("data/search_sites.json", "r", encoding="utf-8") as search_sites_json:
+    search_dic = json.load(search_sites_json)
 
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 def index():
+    if request.method == "POST":
+        if request.form["name"] and request.form["url"]:
+            search_dic.update({str(request.form["name"]):str(request.form["url"])})
+
     return render_template("index.html", search_dic = search_dic)
 
-@app.route('/search_result', methods=["GET", "POST"])
-def search_result():
-
+@app.route('/result', methods=["GET", "POST"])
+def result():
     if request.form["search"]:
         search_text = str(request.form["search"])
         search_list = search_text.splitlines()
-        return render_template("search_result.html", search_list = search_list, search_dic = search_dic)
+        return render_template("result.html", search_list = search_list, search_dic = search_dic)
     else:
-        return render_template("search_error.html")
+        return render_template("index.html", search_dic = search_dic)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=80,threaded=True)
