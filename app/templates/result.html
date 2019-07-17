@@ -10,12 +10,11 @@
   </script>
 
   <table class="table text-nowrap">
-    <caption>Search Result</caption>
     <thead class="thead-dark">
       <tr>
         <th>#</th>
         {% for k,v in search_dic.items(): %}
-          <th scope="col">{{ k }}</th>
+          <th scope="col"><a href="{{get_toppage(v)}}" target="_blank">{{k}}</a></th>
         {% endfor %}
       </tr>
     </thead>

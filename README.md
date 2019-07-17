@@ -8,11 +8,11 @@ docker-compose up -d --build
 
 #### exec bash in container
 ```
-docker-compose exec flask /bin/bash
+docker-compose exec keywoo /bin/bash
 ```
 or
 ```
-docker exec -it flask-container /bin/bash
+docker exec -it keywoo /bin/bash
 ```
 
 #### remove container
@@ -21,4 +21,4 @@ docker-compose down
 ```
 
 
-### flask
+### keywoo
