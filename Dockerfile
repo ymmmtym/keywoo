@@ -10,4 +10,6 @@ RUN apt-get -y update && \
     pip install pip-tools && \
     pip-compile /root/requirements.in && \
     pip-sync
+ADD ["app", "/root/app"]
+WORKDIR /root/app
 CMD ["python", "/root/app/run.py"]
