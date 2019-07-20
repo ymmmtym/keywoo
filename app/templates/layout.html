@@ -23,12 +23,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <!-- Custom Script -->
-    <script type="text/javascript" src="{{ url_for('static', filename='header.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='layout.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 
+    <!-- Content -->
+    <header>
+      <h1>Keywoo</h1>
+    </header>
     {% block content %}
     {% endblock %}
-    
+
     <div class="fixed-bottom"><a class="btn-light" href="/">TOP</a></div>
   </body>
 </html>

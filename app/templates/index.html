@@ -3,7 +3,7 @@
   <div class="container">
     <h1>Keywoo</h1>
     <h2>Search</h2>
-    <form action="/result" method="post">
+    <form action="/result" method="post" onsubmit="return check_blank(this)">
       <p><textarea type="text" name="search" placeholder="Keywords Line" rows="8" cols="80"></textarea></p>
       <p><button type="submit" name="button">Submit</button></p>
     </form>
