@@ -1,34 +1,46 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div class="container">
-    <h1>Keywoo</h1>
-    <h2>Search</h2>
-    <form action="/result" method="post" onsubmit="return check_blank(this)">
-      <p><textarea type="text" name="search" placeholder="Keywords Line" rows="8" cols="80"></textarea></p>
-      <p><button type="submit" name="button">Submit</button></p>
-    </form>
+  <div class="container text-center">
+      <h2>Search</h2>
+          <form action="/result" method="post" onsubmit="return check_blank(this)">
+              <p><textarea type="text" name="search" placeholder="Keywords Line" rows="8" cols="80"></textarea></p>
+              <p><button type="submit" name="button">Submit</button></p>
+          </form>
+
     <h2>Search Sites</h2>
-    <table class="table text-nowrap align-centor border border-warning">
-      <thead class="thead-dark">
-        <tr class="text-center">
-          <th>Search Site</th>
-          <th>URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for k,v in search_dic.items(): %}
-        <tr>
-          <td>{{k}}</td>
-          <td>{{v}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <h2>Update Sites</h2>
     <form action="/" method="post">
-      <input type="text" name="name" placeholder="Name">
-      <input type="text" name="url" placeholder="URL">
-      <input class="submit-button" value="Submit" type="submit">
+        <div class="table-responsive">
+            <table class="table text-nowrap align-centor border border-warning">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th>Check</th>
+                        <th>Search Site</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for k,v in search_dic.items(): %}
+                    <tr>
+                        <td><input type="checkbox" name="{{k}}"></td>
+                        <td>{{k}}</td>
+                        <td>{{v}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+          <p><input type="radio" name="radio" valuer="delete"> delete selected sites</p>
+          <p><input type="radio" name="radio" value="default"> load default sites from json</p>
+          <p><input type="radio" name="radio" value="reset"> reset all sites</p>
+          <p><input type="radio" name="radio" value="add"> add site</p>
+          <p>
+              <input type="text" name="site_name" placeholder="Name">
+              <input type="text" name="url" placeholder="URL">
+          </p>
+          <input class="submit-button" value="Apply" type="submit">
+        </div>
     </form>
+
   </div>
 {% endblock %}
