@@ -17,11 +17,11 @@ with open("./data/sites.json", "r", encoding="utf-8") as sites_json:
 def index():
     if request.method == "POST":
         if request.form["radio"]:
+            global search_dic
             if request.form["radio"] == "delete":
                 del_sites = request.form.getlist("check")
                 for site in del_sites:
                     del search_dic[site]
-                return render_template("index.html", search_dic = search_dic)
             if request.form["radio"] == "default":
                 with open("./data/sites.json", "r", encoding="utf-8") as sites_json:
                     search_dic = json.load(sites_json)

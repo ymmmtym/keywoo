@@ -21,7 +21,7 @@
                 <tbody>
                     {% for k,v in search_dic.items(): %}
                     <tr>
-                        <td><input type="checkbox" name="{{k}}"></td>
+                        <td><input type="checkbox" name="check" value="{{k}}"></td>
                         <td>{{k}}</td>
                         <td>{{v}}</td>
                     </tr>
@@ -30,15 +30,15 @@
             </table>
         </div>
         <div>
-          <p><input type="radio" name="radio" valuer="delete"> delete selected sites</p>
-          <p><input type="radio" name="radio" value="default"> load default sites from json</p>
-          <p><input type="radio" name="radio" value="reset"> reset all sites</p>
-          <p><input type="radio" name="radio" value="add"> add site</p>
-          <p>
-              <input type="text" name="site_name" placeholder="Name">
-              <input type="text" name="url" placeholder="URL">
-          </p>
-          <input class="submit-button" value="Apply" type="submit">
+            <p><input type="radio" id="delete" name="radio" value="delete"><label for="delete"> delete selected sites</label></p>
+            <p><input type="radio" id="default" name="radio" value="default"><label for="default"> load default sites from json</label></p>
+            <p><input type="radio" id="reset" name="radio" value="reset"><label for="reset"> reset all sites</label></p>
+            <p><input type="radio" id="add" name="radio" value="add"><label for="add"> add site</label></p>
+            <p>
+                <input type="text" name="site_name" placeholder="Name">
+                <input type="text" name="url" placeholder="URL">
+            </p>
+            <input class="submit-button" value="Apply" type="submit">
         </div>
     </form>
 
