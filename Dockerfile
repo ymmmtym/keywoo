@@ -1,5 +1,6 @@
 FROM python:3
 MAINTAINER ymmmtym
+USER root
 WORKDIR /root
 ENV HOSTNAME="keywoo-container" \
     PS1="[\u@\h \W]# "
