@@ -1,7 +1,7 @@
 version: '3'
 services:
   keywoo:
-    build: .
+    image: yumemo/keywoo
     container_name: keywoo-container
     hostname: keywoo-container
     tty: true
