@@ -3,7 +3,7 @@
 ### docker
 #### startup container
 ```
-docker-compose up -d --build
+docker-compose up -d
 ```
 
 #### exec bash in container
@@ -19,6 +19,3 @@ docker exec -it keywoo /bin/bash
 ```
 docker-compose down
 ```
-
-
-### keywoo
