@@ -6,5 +6,6 @@
     "Yahoo Auctions": "https://auctions.yahoo.co.jp/search/search?p=",
     "Yahoo Auctions(record)": "https://auctions.yahoo.co.jp/search/search?auccat=22260&p=",
     "Spotify": "https://open.spotify.com/search/results/",
+    "Beatport": "https://www.beatport.com/search?q=",
     "Discogs": "https://www.discogs.com/ja/search/?q="
 }
