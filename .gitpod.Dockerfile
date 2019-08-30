@@ -1,10 +1,6 @@
 FROM python:3
 USER root
-WORKDIR /root
-ENV HOSTNAME="keywoo-container" \
-    PS1="[\u@\h \W]# "
-ADD ["requirements.in", "/root/requirements.in"]
-ADD ["app", "/root/app"]
+ADD ["requirements.in", "/requirements.in"]
 RUN apt-get -y update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
