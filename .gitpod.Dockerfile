@@ -5,5 +5,5 @@ RUN apt-get -y update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
     pip install pip-tools && \
-    pip-compile /root/requirements.in && \
+    pip-compile /requirements.in && \
     pip-sync
