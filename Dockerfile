@@ -12,4 +12,5 @@ RUN apt-get -y update && \
     pip install pip-tools && \
     pip-compile /root/requirements.in && \
     pip-sync
+WORKDIR /root/app
 CMD ["python", "/root/app/run.py"]
