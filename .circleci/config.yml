@@ -1,0 +1,8 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: yumemo/keywoo
+    steps:
+      - checkout
+      - run: echo "hello world"
