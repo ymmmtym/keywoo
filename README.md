@@ -9,9 +9,7 @@ docker-compose up -d
 #### exec bash in container
 ```
 docker-compose exec keywoo /bin/bash
-```
-or
-```
+#or
 docker exec -it keywoo /bin/bash
 ```
 
