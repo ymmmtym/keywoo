@@ -1,8 +1,10 @@
-version: 2.1
+version: 2
 jobs:
   build:
-    docker:
+    machine:
       - image: yumemo/keywoo
     steps:
       - checkout
-      - run: echo "hello world"
+      - run:
+        name:
+        command: docker-compose build
