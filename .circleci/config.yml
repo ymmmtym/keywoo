@@ -16,7 +16,7 @@ jobs:
       - run:
           name: "build docker image"
           # registry.heroku.com/${HEROKU_APP_NAME}/webは変更することは出来ません．
-          command: docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
+          command: docker build --no-cache --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
       - run:
           name: setup heroku command
           # CircleCIからHerokuへデプロイするためのスクリプトを実行
