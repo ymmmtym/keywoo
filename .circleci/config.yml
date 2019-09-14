@@ -1,5 +1,8 @@
-version: 2
+version: 2.1
 jobs:
   build:
-    working_directory: ~/keywoo
-
+    docker:
+      - image: circleci/python:3.6.4
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
