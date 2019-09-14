@@ -5,6 +5,7 @@ ENV HOSTNAME="keywoo-container" \
     PS1="[\u@\h \W]# "
 ADD ["requirements.in", "/tmp"]
 ADD ["app", "/keywoo/app"]
+WORKDIR /tmp
 RUN apt-get -y update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
