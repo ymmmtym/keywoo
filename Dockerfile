@@ -12,5 +12,5 @@ RUN apt-get -y update && \
     pip install pip-tools && \
     pip-compile /tmp/requirements.in && \
     pip-sync
-WORKDIR /keywoo
+WORKDIR /keywoo/app
 CMD flask run -h 0.0.0.0
