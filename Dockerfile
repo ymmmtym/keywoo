@@ -13,4 +13,4 @@ RUN apt-get -y update && \
     pip-compile /tmp/requirements.in && \
     pip-sync
 WORKDIR /keywoo/app
-CMD flask run -h 0.0.0.0
+CMD flask run -h 0.0.0.0 -p $PORT
