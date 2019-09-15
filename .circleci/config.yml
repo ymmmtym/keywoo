@@ -2,7 +2,7 @@ version: 2
 jobs:
   deploy:
     machine:
-      image: yumemo/python
+      image: circleci/classic:edge
     steps:
       - checkout
       - run:
