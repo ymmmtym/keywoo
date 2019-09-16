@@ -1,16 +1,8 @@
 version: 2
 jobs:
-  build:
-    machine:
-      image: circleci/classic:edge
-    steps:
-      - checkout
-      - run:
-          name: docker-compose build
-          command: docker-compose build
   deploy:
     machine:
-      image: circleci/classic:edge
+      image: circleci/python
     steps:
       - checkout
       - run:
