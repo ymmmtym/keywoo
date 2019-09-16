@@ -2,7 +2,7 @@ version: 2
 jobs:
   deploy:
     machine:
-      image: circleci/circleci:classic
+      image: yumemo:keywoo
     steps:
       - checkout
       - run:
