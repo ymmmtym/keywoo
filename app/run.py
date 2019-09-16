@@ -11,7 +11,7 @@ def get_toppage(str):
 app.jinja_env.globals['get_toppage'] = get_toppage
 app.config['JSON_AS_ASCII'] = False
 
-with open("/keywoo/app/data/sites.json", "r", encoding="utf-8") as sites_json:
+with open("/app/data/sites.json", "r", encoding="utf-8") as sites_json:
     search_dic = json.load(sites_json)
 
 @app.route('/', methods=["GET","POST"])
