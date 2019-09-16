@@ -2,7 +2,6 @@ FROM python:3
 MAINTAINER ymmmtym
 ENV HOSTNAME="keywoo-container" \
     FLASK_APP="/app/run.py" \
-    PORT=5000 \
     PS1="[\u@\h \W]# "
 ADD ["requirements.in", "/tmp"]
 ADD ["app", "/keywoo/app"]
