@@ -1,7 +1,7 @@
 FROM python:3
 MAINTAINER ymmmtym
 ENV HOSTNAME="keywoo-container" \
-    FLASK_APP="/keywoo/app/run.py" \
+    FLASK_APP="/app/run.py" \
     PS1="[\u@\h \W]# "
 ADD ["requirements.in", "/tmp"]
 ADD ["app", "/keywoo/app"]
@@ -12,5 +12,5 @@ RUN apt-get -y update && \
     pip install pip-tools && \
     pip-compile /tmp/requirements.in && \
     pip-sync
-WORKDIR /keywoo/app
+WORKDIR /app
 CMD flask run -h 0.0.0.0 -p $PORT
