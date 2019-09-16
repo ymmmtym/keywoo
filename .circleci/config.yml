@@ -2,7 +2,7 @@ version: 2
 jobs:
   deploy:
     machine:
-      image: circleci/python:3.7.4
+      image: circleci/classic:edge
     steps:
       - checkout
       - run:
