@@ -13,4 +13,4 @@ RUN apt-get -y update && \
     pip-compile /tmp/requirements.in && \
     pip-sync
 WORKDIR /app
-CMD ["flask", "run", "-h", "0.0.0.0", "-p", "$PORT"]
+CMD flask run -h 0.0.0.0 -p $PORT
