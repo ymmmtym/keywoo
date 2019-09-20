@@ -6,6 +6,6 @@ services:
     hostname: keywoo-container
     tty: true
     volumes:
-      - ./app:/root/app
+      - ./app:/app
     ports:
       - "5000:5000"

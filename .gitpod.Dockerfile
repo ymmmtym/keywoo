@@ -1,6 +1,6 @@
 FROM python:3
 USER root
-ADD ["requirements.in", "/requirements.in"]
+ADD ["requirements.in", "/tmp"]
 RUN apt-get -y update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \

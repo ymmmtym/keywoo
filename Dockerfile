@@ -2,9 +2,10 @@ FROM python:3
 MAINTAINER ymmmtym
 ENV HOSTNAME="keywoo-container" \
     FLASK_APP="/app/run.py" \
+    APP_PATH="/app" \
     PS1="[\u@\h \W]# "
 ADD ["requirements.in", "/tmp"]
-ADD ["app", "/app"]
+ADD ["app", "$APP_PATH"]
 WORKDIR /tmp
 RUN apt-get -y update && \
     pip install --upgrade pip && \
@@ -12,5 +13,5 @@ RUN apt-get -y update && \
     pip install pip-tools && \
     pip-compile /tmp/requirements.in && \
     pip-sync
-WORKDIR /app
+WORKDIR $APP_PATH
 CMD flask run -h 0.0.0.0 -p $PORT
