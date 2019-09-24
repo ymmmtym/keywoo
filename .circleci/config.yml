@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "modify Dockerfile for heroku"
+          command: sed -i -e '/CMD/s/$/ -p $PORT/g Dockerfile'
+      - run:
           name: "build docker image"
           command: docker build --no-cache --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
       - run:
