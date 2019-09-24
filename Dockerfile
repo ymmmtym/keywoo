@@ -14,4 +14,4 @@ RUN apt-get -y update && \
     pip-compile /tmp/requirements.in && \
     pip-sync
 WORKDIR $APP_PATH
-CMD flask run -h 0.0.0.0 -p $PORT
+CMD flask run
