@@ -25,17 +25,20 @@
     <script type="text/javascript" src="{{ url_for('static', filename='layout.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 
-    <!-- Content -->
+    <!-- header -->
     <header class="navbar navbar-dark bg-dark navbar-light bg-light fixed-top">
         <div class="mx-auto">
-            <a class="navbar-brand" href="/">Keywoo</a>
+            <a class="navbar-brand align-center" href="/">Keywoo</a>
         </div>
     </header>
 
+    <!-- content -->
     <div class="mb-5">
         {% block content %}
         {% endblock %}
     </div>
+
+    <!-- footer -->
 
   </body>
 </html>

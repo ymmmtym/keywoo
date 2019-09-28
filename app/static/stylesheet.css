@@ -1,10 +1,19 @@
 body {
-    padding-top: 4.5rem;
+  padding-top: 4.5rem;
+  margin: auto;
+  background-color: whitesmoke;
+}
+
+textarea {
+  box-sizing:border-box;
+  border:none;
+  width: 100%;
+  margin: auto;
 }
 
 /* resposinble */
 @media screen and (max-width: 480px) {
-    .contents {
-      width: 100%;
-    }
+  header {
+    width: 100%;
   }
+}
