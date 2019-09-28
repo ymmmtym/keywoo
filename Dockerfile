@@ -1,5 +1,5 @@
 FROM python:3
-MAINTAINER ymmmtym
+LABEL maintainer "ymmmtym"
 ENV HOSTNAME="keywoo-container" \
     FLASK_APP="/app/run.py" \
     APP_PATH="/app" \
