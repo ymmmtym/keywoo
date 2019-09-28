@@ -1,5 +1,4 @@
 FROM python:3
-USER root
 ADD ["requirements.in", "/tmp"]
 WORKDIR /tmp
 RUN apt-get -y update && \
