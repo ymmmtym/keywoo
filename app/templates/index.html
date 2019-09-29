@@ -1,46 +1,45 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div class="container text-center">
-      <h2>Search</h2>
-          <form action="/result" method="post" onsubmit="return check_blank(this)">
-              <p><textarea type="text" name="search" placeholder="Keywords Line"></textarea></p>
-              <p><button type="submit" name="button">Submit</button></p>
-          </form>
+    <div class="container text-center">
+        <h2>Search</h2>
+        <form action="/result" method="post" onsubmit="return check_blank(this,'search')">
+            <p><textarea type="text" name="search" rows="5" placeholder="Keywords Line"></textarea></p>
+            <p><button type="submit" name="button">Submit</button></p>
+        </form>
 
-    <h2>Search Sites</h2>
-    <form action="/" method="post">
-        <div class="table-responsive">
-            <table class="table text-nowrap align-centor border border-warning">
-                <thead class="thead-dark">
-                    <tr class="text-center">
-                        <th>Check</th>
-                        <th>Search Site</th>
-                        <th>URL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for k,v in search_dic.items(): %}
-                    <tr>
-                        <td><input type="checkbox" name="check" value="{{k}}"></td>
-                        <td>{{k}}</td>
-                        <td>{{v}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <p><input type="radio" id="delete" name="radio" value="delete"><label for="delete"> delete selected sites</label></p>
-            <p><input type="radio" id="default" name="radio" value="default"><label for="default"> load default sites from json</label></p>
-            <p><input type="radio" id="reset" name="radio" value="reset"><label for="reset"> reset all sites</label></p>
-            <p><input type="radio" id="add" name="radio" value="add"><label for="add"> add site from form</label></p>
-            <p>
-                <input type="text" name="site_name" placeholder="Name">
-                <input type="text" name="url" placeholder="URL">
-            </p>
-            <p><button type="submit" name="button">Apply</button></p>
-        </div>
-    </form>
-
-  </div>
+        <h2>Search Sites</h2>
+        <form action="/" method="post" onsubmit="return check_blank(this,'radio')">
+            <div class="table-responsive">
+                <table class="table text-nowrap align-centor border border-warning">
+                    <thead class="thead-dark">
+                        <tr class="text-center">
+                            <th>Check</th>
+                            <th>Search Site</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for k,v in search_dic.items(): %}
+                        <tr>
+                            <td><input type="checkbox" name="check" value="{{k}}"></td>
+                            <td>{{k}}</td>
+                            <td>{{v}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <p><input type="radio" id="delete" name="radio" value="delete"><label for="delete"> delete selected sites</label></p>
+                <p><input type="radio" id="default" name="radio" value="default"><label for="default"> load default sites from json</label></p>
+                <p><input type="radio" id="reset" name="radio" value="reset"><label for="reset"> reset all sites</label></p>
+                <p><input type="radio" id="add" name="radio" value="add"><label for="add"> add site from form</label></p>
+                <p>
+                    <input type="text" name="site_name" placeholder="Name">
+                    <input type="text" name="url" placeholder="URL">
+                </p>
+                <p><button type="submit" name="button">Apply</button></p>
+            </div>
+        </form>
+    </div>
 {% endblock %}
