@@ -4,7 +4,7 @@ ENV HOSTNAME="keywoo-container" \
     FLASK_APP="/app/run.py" \
     APP_PATH="/app" \
     PS1="[\u@\h \W]# "
-ADD ["requirements.in", "/tmp"]
+ADD ["requirements.txt", "/tmp"]
 ADD ["app", "$APP_PATH"]
 WORKDIR /tmp
 RUN apt-get -y update && \
