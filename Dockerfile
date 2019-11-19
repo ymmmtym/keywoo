@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.7
 LABEL maintainer "ymmmtym"
 ENV HOSTNAME="keywoo-container" \
     FLASK_APP="/app/run.py" \
