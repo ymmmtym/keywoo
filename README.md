@@ -23,5 +23,5 @@ launch debug mode
 ```
 export FLASK_APP=run.py
 export FLASK_DEBUG=1
-flask run -h 0.0.0.0 -p 5001
+flask run -h 0.0.0.0 -p ${PORT}
 ```
