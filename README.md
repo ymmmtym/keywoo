@@ -1,4 +1,6 @@
 # keywoo
+[![CircleCI](https://circleci.com/gh/ymmmtym/keywoo.svg?style=svg)](https://circleci.com/gh/ymmmtym/keywoo)
+
 ## Operation
 ### docker
 #### startup container
