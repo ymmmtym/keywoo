@@ -1,4 +1,4 @@
-FROM python:3.7.5
+FROM python:3.8.0-alpine3.10
 LABEL Maintainer "ymmmtym"
 
 ENV HOSTNAME="keywoo-container" \
@@ -8,7 +8,7 @@ ENV HOSTNAME="keywoo-container" \
 COPY ["requirements.txt", "/tmp"]
 COPY ["app", "$APP_PATH"]
 
-RUN apt-get -y update && \
+RUN apk update && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
     pip install -r /tmp/requirements.txt
