@@ -1,27 +1,31 @@
 # keywoo
-## Operation
-### docker
-#### startup container
+
+[![CircleCI](https://circleci.com/gh/ymmmtym/keywoo.svg?style=svg)](https://circleci.com/gh/ymmmtym/keywoo) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Demo
+
+Access to https://keywoo.herokuapp.com/
+
+## Requirements
+
+- docker >= 19.03
+- docker-compose >= 1.24
+
+## Installation
+
 ```
-docker-compose up -d
+git clone git@github.com:ymmmtym/keywoo.git
+docker-compose up -d --build
 ```
 
-#### exec bash in container
-```
-docker-compose exec keywoo /bin/bash
-#or
-docker exec -it keywoo /bin/bash
-```
+Access to http://localhost:5000
 
-#### remove container
-```
-docker-compose down
-```
+## License
 
-### app
-launch debug mode
-```
-export FLASK_APP=run.py
-export FLASK_DEBUG=1
-flask run -h 0.0.0.0 -p ${PORT}
-```
+**keywoo** is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+**keywoo** is not confidential.
+
+
+## Reference
+[Docker+flaskで「URL Opener」的なものを作った](https://qiita.com/ymmmtym/items/eba907b818f0cc70856d)
