@@ -1,5 +1,7 @@
 from flask import render_template, request, jsonify, flash
 from keywoo import app
+from keywoo import db
+from keywoo.models.sites import Site
 import json
 
 
@@ -39,3 +41,8 @@ def result():
     else:
         flash('failed')
         return render_template("index.html", search_dic = search_dic)
+
+# @app.route('/test', methods=["GET", "POST"])
+# def test():
+#     sites = Site.query.order_by(Site.id.desc()).all()
+#     return render_template("test.html", sites = sites)
