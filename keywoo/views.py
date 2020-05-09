@@ -41,8 +41,3 @@ def result():
     else:
         flash('failed')
         return render_template("index.html", search_dic = search_dic)
-
-# @app.route('/test', methods=["GET", "POST"])
-# def test():
-#     sites = Site.query.order_by(Site.id.desc()).all()
-#     return render_template("test.html", sites = sites)
