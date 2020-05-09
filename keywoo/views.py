@@ -1,17 +1,9 @@
-#!/usr/bin/python
-
-from flask import Flask, render_template, request, jsonify
+from flask import render_template, request, jsonify
+from keywoo import app
 import json
-import os
 
-app = Flask(__name__)
-def get_toppage(str):
-    list = str.split('/')
-    return list[0] + '//' + list[2]
-app.jinja_env.globals['get_toppage'] = get_toppage
-app.config['JSON_AS_ASCII'] = False
 
-with open("data/sites.json", "r", encoding="utf-8") as sites_json:
+with open("keywoo/data/sites.json", "r", encoding="utf-8") as sites_json:
     search_dic = json.load(sites_json)
 
 @app.route('/', methods=["GET","POST"])
@@ -41,7 +33,3 @@ def result():
         return render_template("result.html", search_list = search_list, search_dic = search_dic)
     else:
         return render_template("index.html", search_dic = search_dic)
-
-if __name__ == '__main__':
-  port = int(os.environ.get("PORT", 5000))
-  app.run(host='0.0.0.0',port=port,threaded=True)
