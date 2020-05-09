@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 
 def get_toppage(str):
@@ -8,5 +9,7 @@ def get_toppage(str):
 app = Flask(__name__)
 app.config.from_object('keywoo.config')
 app.jinja_env.globals['get_toppage'] = get_toppage
+
+db = SQLAlchemy(app)
 
 import keywoo.views
