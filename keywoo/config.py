@@ -6,4 +6,4 @@ DEBUG=True
 THREADED = True
 TESTING=True
 JSON_AS_ASCII = False
-SECRET_KEY = 'secret key'
+SECRET_KEY = os.urandom(12)
