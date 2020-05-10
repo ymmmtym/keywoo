@@ -89,7 +89,13 @@ def logout():
 @app.route('/test', methods=['GET','POST'])
 def test():
     if request.method == "POST":
-        pass
+        if request.form["radio"] == "add":
+            name = request.form.get('name')
+            url = request.form.get('url')
+            new_site = Site(name=name, url=url)
+            db.session.add(new_site)
+            db.session.commit()
+
     sites = Site.query.all()
     return render_template("test.html", sites = sites)
 

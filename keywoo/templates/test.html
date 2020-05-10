@@ -8,7 +8,7 @@
         </form>
 
         <h2>Search Sites</h2>
-        <form action="/" method="post" onsubmit="return check_blank(this,'radio')">
+        <form action="/test" method="post" onsubmit="return check_blank(this,'radio')">
             <div class="table-responsive">
                 <table class="table text-nowrap align-centor border border-warning">
                     <thead class="thead-dark">
@@ -32,10 +32,8 @@
             <div>
                 <p><input type="radio" id="delete" name="radio" value="delete"><label for="delete"> delete selected sites</label></p>
                 <p><input type="radio" id="add" name="radio" value="add"><label for="add"> add site from form</label></p>
-                <p>
-                    <input type="text" name="site_name" placeholder="Name">
-                    <input type="text" name="url" placeholder="URL">
-                </p>
+                <p><input type="text" name="name" placeholder="Name"></p>
+                <p><input type="text" name="url" placeholder="URL"></p>
                 <p><button type="submit" name="button">Apply</button></p>
             </div>
         </form>
