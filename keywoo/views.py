@@ -31,7 +31,7 @@ def index():
                 if request.form["site_name"] and request.form["url"]:
                     search_dic.update({str(request.form["site_name"]):str(request.form["url"])})
                 flash(request.form["site_name"]+' is added')
-    return render_template("index.html", search_dic = search_dic)
+    return render_template("index.html", search_dic=search_dic)
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
@@ -85,3 +85,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/test')
+def test():
+    sites = Site.query.all()
+    return render_template("test.html", sites = sites)
