@@ -13,5 +13,5 @@ RUN apk update && \
     pip install --upgrade setuptools && \
     pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 5000
 CMD flask run -h 0.0.0.0

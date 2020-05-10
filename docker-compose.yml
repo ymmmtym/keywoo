@@ -10,3 +10,15 @@ services:
       - ./app:/app
     ports:
       - "5000:5000"
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - keywoo
+    restart: always
+    environment:
+      DOMAINS: 'keywoo.tokyo.local -> http://keywoo:5000'
+      STAGE: 'local' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
