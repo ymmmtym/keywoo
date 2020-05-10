@@ -1,7 +1,7 @@
-from flask import render_template, redirect, url_for, request, jsonify, flash
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask import render_template, redirect, url_for, request, flash
+from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
-from keywoo import app, db, login_manager
+from keywoo import app, db
 from keywoo.models.sites import Site
 from keywoo.models.users import User
 import json
