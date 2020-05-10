@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
   <script type="text/javascript">
-    window_list = "{{ search_list|tojson }}"
+    window_list = {{ search_list | tojson }};
     function openwindow(link){
       for (i = 0;i < window_list.length;i++){
         window.open(`${link}+${window_list[i]}`, '_blank');
