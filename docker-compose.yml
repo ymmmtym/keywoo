@@ -9,6 +9,9 @@ services:
       POSTGRES_PASSWORD: keywoo
     ports:
       - "5432:5432"
+    volumes:
+      # - ./postgres/initdb:/docker-entrypoint-initdb.d
+      - database:/var/lib/postgresql/data
 
   keywoo:
     build: .
@@ -38,3 +41,7 @@ services:
       DOMAINS: 'keywoo.tokyo.local -> http://keywoo:5000'
       STAGE: 'local' # Don't use production until staging works
       # FORCE_RENEW: 'true'
+
+volumes:
+  database:
+    driver: local
