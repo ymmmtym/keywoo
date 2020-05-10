@@ -15,3 +15,10 @@ function check_blank(text,name){
 $(document).ready(function(){
   $('body').fadeIn('slow');
 });
+
+
+$(function(){
+	$('.navbar-toggler').click(function(){
+		$(this).next('div').slideToggle();
+  });
+});

@@ -54,6 +54,9 @@ def signup():
         if user:
             flash('このユーザは既に登録済みです。他のユーザ名で登録してください。')
             return redirect(url_for('signup'))
+        if not name or not password:
+            flash('お名前とパスワードを入力してください。')
+            return redirect(url_for('signup'))
 
         new_user = User(name=name, password=generate_password_hash(password, method='sha256'))
         db.session.add(new_user)
