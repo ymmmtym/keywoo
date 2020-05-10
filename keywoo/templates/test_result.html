@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+  <script type="text/javascript">
+    window_list = "{{ search_list|tojson }}"
+    function openwindow(link){
+      for (i = 0;i < window_list.length;i++){
+        window.open(`${link}+${window_list[i]}`, '_blank');
+      }
+    }
+  </script>
+
+  <div class="table-responsive">
+    <table class="table text-nowrap ">
+      <thead class="thead-striped">
+        <tr>
+          <th>#</th>
+          {% for site in sites %}
+            <th scope="col"><a href="{{get_toppage(site.url)}}" target="_blank">{{ site.name }}</a></th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in search_list: %}
+        <tr>
+          <th scope="row">{{ item }}</th>
+          {% for site in sites %}
+            <td><a href="{{ site.url + item }}" target="_blank">{{ item }}</a></td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        <tr>
+          <th scope="row">Open All link</th>
+          {% for site in sites %}
+              <td><input type="button" value="Open All" onClick="openwindow('{{ site.url }}');"></td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

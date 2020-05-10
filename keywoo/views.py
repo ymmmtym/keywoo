@@ -86,7 +86,21 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/test')
+@app.route('/test', methods=['GET','POST'])
 def test():
+    if request.method == "POST":
+        pass
     sites = Site.query.all()
     return render_template("test.html", sites = sites)
+
+@app.route('/test_result', methods=["GET", "POST"])
+def test_result():
+    if request.form["search"]:
+        search_text = str(request.form["search"])
+        search_list = search_text.splitlines()
+        flash('Result Pages')
+        sites = Site.query.all()
+        return render_template("test_result.html", search_list = search_list, sites = sites)
+    else:
+        flash('failed')
+        return render_template("test.html", search_dic = search_dic)
