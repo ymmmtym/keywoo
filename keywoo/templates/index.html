@@ -13,33 +13,39 @@
                 <table class="table text-nowrap align-centor border border-warning">
                     <thead class="thead-dark">
                         <tr class="text-center">
-                            <th>Check</th>
+                            {% if current_user.is_authenticated %}
+                            <th><input type="checkbox" id="all"></th>
+                            {% endif %}
                             <th>Search Site</th>
+                            {% if current_user.is_authenticated %}
                             <th>URL</th>
+                            {% endif %}
                         </tr>
                     </thead>
-                    <tbody>
-                        {% for k,v in search_dic.items(): %}
+                    <tbody id="boxes">
+                        {% for site in sites %}
                         <tr>
-                            <td><input type="checkbox" name="check" value="{{k}}"></td>
-                            <td>{{k}}</td>
-                            <td>{{v}}</td>
+                            {% if current_user.is_authenticated %}
+                            <td><input type="checkbox" name="check" value="{{ site.name }}"></td>
+                            {% endif %}
+                            <td>{{ site.name }}</td>
+                            {% if current_user.is_authenticated %}
+                            <td>{{ site.url }}</td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
+            {% if current_user.is_authenticated %}
             <div>
                 <p><input type="radio" id="delete" name="radio" value="delete"><label for="delete"> delete selected sites</label></p>
-                <p><input type="radio" id="default" name="radio" value="default"><label for="default"> load default sites from json</label></p>
-                <p><input type="radio" id="reset" name="radio" value="reset"><label for="reset"> reset all sites</label></p>
                 <p><input type="radio" id="add" name="radio" value="add"><label for="add"> add site from form</label></p>
-                <p>
-                    <input type="text" name="site_name" placeholder="Name">
-                    <input type="text" name="url" placeholder="URL">
-                </p>
+                <p><input type="text" name="name" placeholder="Name"></p>
+                <p><input type="text" name="url" placeholder="URL"></p>
                 <p><button type="submit" name="button">Apply</button></p>
             </div>
+            {% endif %}
         </form>
     </div>
 {% endblock %}

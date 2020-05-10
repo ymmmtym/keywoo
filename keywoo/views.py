@@ -4,45 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from keywoo import app, db
 from keywoo.models.sites import Site
 from keywoo.models.users import User
-import json
 
-
-with open("keywoo/data/sites.json", "r", encoding="utf-8") as sites_json:
-    search_dic = json.load(sites_json)
-
-@app.route('/', methods=["GET","POST"])
-def index():
-    if request.method == "POST":
-        if request.form["radio"]:
-            global search_dic
-            if request.form["radio"] == "delete":
-                del_sites = request.form.getlist("check")
-                for site in del_sites:
-                    del search_dic[site]
-                    flash(site + ' is deleted')
-            if request.form["radio"] == "default":
-                with open("./data/sites.json", "r", encoding="utf-8") as sites_json:
-                    search_dic = json.load(sites_json)
-                flash('loaded default sites')
-            if request.form["radio"] == "reset":
-                search_dic.clear()
-                flash('reseted all sites')
-            if request.form["radio"] == "add":
-                if request.form["site_name"] and request.form["url"]:
-                    search_dic.update({str(request.form["site_name"]):str(request.form["url"])})
-                flash(request.form["site_name"]+' is added')
-    return render_template("index.html", search_dic=search_dic)
-
-@app.route('/result', methods=["GET", "POST"])
-def result():
-    if request.form["search"]:
-        search_text = str(request.form["search"])
-        search_list = search_text.splitlines()
-        flash('Result Pages')
-        return render_template("result.html", search_list = search_list, search_dic = search_dic)
-    else:
-        flash('failed')
-        return render_template("index.html", search_dic = search_dic)
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -86,8 +48,8 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/test', methods=['GET','POST'])
-def test():
+@app.route('/', methods=['GET','POST'])
+def index():
     user = current_user.name if current_user.is_authenticated else None
     if request.method == "POST":
         if request.form["radio"] == "add":
@@ -97,7 +59,7 @@ def test():
             registrated = Site.query.filter_by(name=name,user=user).first()
             if registrated:
                 flash('この名前は既に登録済みです。')
-                return redirect(url_for('test'))
+                return redirect(url_for('index'))
 
             new_site = Site(name=name, url=url, user=user)
             db.session.add(new_site)
@@ -111,17 +73,17 @@ def test():
                 db.session.commit()
 
     sites = Site.query.filter_by(user=user)
-    return render_template("test.html", sites = sites)
+    return render_template("index.html", sites = sites)
 
-@app.route('/test_result', methods=["GET", "POST"])
-def test_result():
+@app.route('/result', methods=["GET", "POST"])
+def result():
     if request.form["search"]:
         search_text = str(request.form["search"])
         search_list = search_text.splitlines()
         flash('Result Pages')
         user = current_user.name if current_user.is_authenticated else None
         sites = Site.query.filter_by(user=user)
-        return render_template("test_result.html", search_list = search_list, sites = sites)
+        return render_template("result.html", search_list = search_list, sites = sites)
     else:
         flash('failed')
-        return render_template("test.html", search_dic = search_dic)
+        return redirect(url_for('index'))
