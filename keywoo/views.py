@@ -95,6 +95,12 @@ def test():
             new_site = Site(name=name, url=url)
             db.session.add(new_site)
             db.session.commit()
+        if request.form["radio"] == "delete":
+            del_sites = request.form.getlist("check")
+            for del_site in del_sites:
+                site = Site.query.filter_by(name=del_site).first()
+                db.session.delete(site)
+                db.session.commit()
 
     sites = Site.query.all()
     return render_template("test.html", sites = sites)
