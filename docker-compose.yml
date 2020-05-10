@@ -3,6 +3,7 @@ services:
   db:
     image: postgres:9.6.17-alpine
     container_name: db
+    tty: true
     environment:
       POSTGRES_USER: keywoo
       POSTGRES_PASSWORD: keywoo
@@ -18,13 +19,11 @@ services:
     links:
       - db
     volumes:
-      - ./app:/app
+      - .:/opt/keywoo
     ports:
       - "5000:5000"
     environment:
       WAIT_HOSTS: db:5432
-    command: sh -c "/wait" && python manage.py init_db
-
 
   https-portal:
     image: steveltn/https-portal:1

@@ -20,4 +20,4 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait
 RUN chmod +x /wait
 
 EXPOSE 5000
-CMD /wait && flask run -h 0.0.0.0
+CMD  /bin/sh -c "/wait && ${APP}/run.sh"
