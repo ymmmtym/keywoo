@@ -1,6 +1,7 @@
 import os
 
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or "sqlite:///keywoo.db"
+SQLALCHEMY_DATABASE_URI = "postgresql://keywoo:keywoo@db:5432/keywoo"
+# SQLALCHEMY_DATABASE_URI = "sqlite:///keywoo.db" # local
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 DEBUG=True
 THREADED = True

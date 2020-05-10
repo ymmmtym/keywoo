@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from keywoo import app, db
 from keywoo.models.sites import Site
 from keywoo.models.users import User
+import re
 
 
 @app.route('/signup', methods=['GET','POST'])
@@ -55,6 +56,11 @@ def index():
         if request.form["radio"] == "add":
             name = request.form.get('name')
             url = request.form.get('url')
+
+            pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
+            if not re.match(pattern, url):
+                flash('正しいURLを入力してください。')
+                return redirect(url_for('index'))
 
             registrated = Site.query.filter_by(name=name,user=user).first()
             if registrated:
