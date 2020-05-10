@@ -9,9 +9,12 @@ COPY [".", "${APP}"]
 
 WORKDIR ${APP}
 RUN apk update && \
+    apk add postgresql-libs && \
+    apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
     pip install -r requirements.txt
+    apk --purge del .build-deps
 
 EXPOSE 5000
 CMD flask run -h 0.0.0.0

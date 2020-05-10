@@ -1,15 +1,26 @@
 version: '3'
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: keywoo
+      POSTGRES_PASSWORD: keywoo
+    ports:
+      - "5432:5432"
+
   keywoo:
     build: .
     image: yumemo/keywoo
     container_name: keywoo
     hostname: keywoo
     tty: true
+    links:
+      - db
     volumes:
       - ./app:/app
     ports:
       - "5000:5000"
+
   https-portal:
     image: steveltn/https-portal:1
     ports:
