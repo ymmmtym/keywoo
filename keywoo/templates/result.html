@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
   <script type="text/javascript">
-    window_list = {{ search_list|tojson }}
+    window_list = "{{ search_list|tojson }}"
     function openwindow(link){
       for (i = 0;i < window_list.length;i++){
         window.open(`${link}+${window_list[i]}`, '_blank');
@@ -9,30 +9,32 @@
     }
   </script>
 
-  <table class="table text-nowrap">
-    <thead class="thead-striped">
-      <tr>
-        <th>#</th>
-        {% for k,v in search_dic.items(): %}
-          <th scope="col"><a href="{{get_toppage(v)}}" target="_blank">{{k}}</a></th>
+  <div class="table-responsive">
+    <table class="table text-nowrap ">
+      <thead class="thead-striped">
+        <tr>
+          <th>#</th>
+          {% for k,v in search_dic.items(): %}
+            <th scope="col"><a href="{{get_toppage(v)}}" target="_blank">{{k}}</a></th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in search_list: %}
+        <tr>
+          <th scope="row">{{ item }}</th>
+          {% for k,v in search_dic.items(): %}
+            <td><a href="{{v + item }}" target="_blank">{{ item }}</a></td>
+          {% endfor %}
+        </tr>
         {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in search_list: %}
-      <tr>
-        <th scope="row">{{ item }}</th>
-        {% for k,v in search_dic.items(): %}
-          <td><a href="{{v + item }}" target="_blank">{{ item }}</a></td>
-        {% endfor %}
-      </tr>
-      {% endfor %}
-      <tr>
-        <th scope="row">Open All link</th>
-        {% for k,v in search_dic.items(): %}
-            <td><input type="button" value="Open All" onClick="openwindow('{{ v }}');"></td>
-        {% endfor %}
-      </tr>
-    </tbody>
-  </table>
+        <tr>
+          <th scope="row">Open All link</th>
+          {% for k,v in search_dic.items(): %}
+              <td><input type="button" value="Open All" onClick="openwindow('{{ v }}');"></td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
