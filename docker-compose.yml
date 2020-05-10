@@ -21,6 +21,10 @@ services:
       - ./app:/app
     ports:
       - "5000:5000"
+    environment:
+      WAIT_HOSTS: db:5432
+    command: sh -c "/wait" && python manage.py init_db
+
 
   https-portal:
     image: steveltn/https-portal:1

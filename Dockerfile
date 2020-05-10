@@ -16,5 +16,8 @@ RUN apk update && \
     pip install -r requirements.txt && \
     apk --purge del .build-deps
 
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
+
 EXPOSE 5000
-CMD flask run -h 0.0.0.0
+CMD /wait && flask run -h 0.0.0.0
