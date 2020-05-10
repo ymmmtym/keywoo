@@ -10,7 +10,6 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      # - ./postgres/initdb:/docker-entrypoint-initdb.d
       - database:/var/lib/postgresql/data
 
   keywoo:
@@ -38,8 +37,8 @@ services:
       - keywoo
     restart: always
     environment:
-      DOMAINS: 'keywoo.tokyo.local -> http://keywoo:5000'
-      STAGE: 'local' # Don't use production until staging works
+      DOMAINS: 'keywoo.tokyo -> http://keywoo:5000'
+      STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
 
 volumes:
