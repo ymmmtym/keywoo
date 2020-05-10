@@ -11,3 +11,18 @@ textarea {
   width: 100%;
   margin: auto;
 }
+
+.navbar-toggler {
+  display: none;
+}
+
+/* media */
+@media screen and (max-width: 480px) {
+  .nav {
+    display: none;
+    margin: auto;
+  }
+  .navbar-toggler {
+  display: inline;
+  }
+}

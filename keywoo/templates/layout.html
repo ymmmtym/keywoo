@@ -28,11 +28,15 @@
     <body>
         <!-- header -->
         <header class="navbar navbar-dark bg-dark navbar-light bg-light fixed-top">
-            <div class="mx-auto">
+            <div>
                 <a class="navbar-brand align-center" href="/">Keywoo</a>
             </div>
-            <div>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbaricon" aria-controls="navbaricon" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav justify-content-end">
                 {% if current_user.is_authenticated %}
+                <span class="navbar-brand align-left" >{{ current_user.name }}</span>
                 <a class="navbar-brand align-left" href="/logout">Logout</a>
                 {% else %}
                 <a class="navbar-brand align-left" href="/signup">Sign Up</a>
@@ -55,7 +59,7 @@
 
         <!-- footer -->
         <footer>
-            <nav class="navbar navbar-dark">
+            <nav class="navbar navbar-dark ">
                 <p>&copy;2020 ymmmtym</p>
             </nav>
         </footer>
