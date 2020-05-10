@@ -1,7 +1,8 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:9.6.17-alpine
+    container_name: db
     environment:
       POSTGRES_USER: keywoo
       POSTGRES_PASSWORD: keywoo
@@ -23,6 +24,7 @@ services:
 
   https-portal:
     image: steveltn/https-portal:1
+    container_name: https-portal
     ports:
       - '80:80'
       - '443:443'
