@@ -9,7 +9,7 @@ COPY [".", "${APP}"]
 
 WORKDIR ${APP}
 RUN apk update && \
-    apk add postgresql-libs && \
+    apk add gcc build-base linux-headers postgresql-libs && \
     apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
     pip install --upgrade pip && \
     pip install --upgrade setuptools && \
