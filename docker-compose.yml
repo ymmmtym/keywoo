@@ -13,8 +13,10 @@ services:
       - database:/var/lib/postgresql/data
 
   keywoo:
-    build: .
-    image: yumemo/keywoo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ymmmtym/keywoo
     container_name: keywoo
     hostname: keywoo
     tty: true
