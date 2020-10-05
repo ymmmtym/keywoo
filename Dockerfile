@@ -9,8 +9,8 @@ COPY [".", "${APP}"]
 
 WORKDIR ${APP}
 RUN apk updatee && \
-    apk add --no-cach gcc build-base linux-headers postgresql-libs && \
-    apk add --no-cach --virtual .build-deps gcc musl-dev postgresql-dev && \
+    apk add gcc build-base linux-headers postgresql-libs && \
+    apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
     apk --purge del .build-deps && \
     rm -fr /var/cache/apk/*
 
