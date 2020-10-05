@@ -8,16 +8,17 @@ ENV FLASK_APP="${APP}/run.py"
 COPY [".", "${APP}"]
 
 WORKDIR ${APP}
-RUN apk update && \
-    apk add gcc build-base linux-headers postgresql-libs && \
-    apk add --virtual .build-deps gcc musl-dev postgresql-dev && \
-    pip install --upgrade pip && \
-    pip install --upgrade setuptools && \
-    pip install -r requirements.txt && \
+RUN apk updatee && \
+    apk add --no-cache gcc build-base linux-headers postgresql-libs && \
+    apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
     apk --purge del .build-deps
+
+RUN pip install -U pip && \
+    pip install -U setuptools && \
+    pip install -r requirements.txt
 
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
 RUN chmod +x /wait
 
 EXPOSE 5000
-CMD  /bin/sh -c "/wait && ${APP}/run.sh"
+CMD [ "/wait && ${APP}/run.sh" ]
