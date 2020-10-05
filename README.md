@@ -20,7 +20,7 @@ git clone git@github.com:ymmmtym/keywoo.git
 docker-compose up -d --build
 ```
 
-Access to http://localhost:5000
+Access to <http://localhost:5000>
 
 ## License
 
