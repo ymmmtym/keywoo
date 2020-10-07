@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ymmmtym/keywoo
+    image: ghcr.io/ymmmtym/keywoo
     container_name: keywoo
     hostname: keywoo
     tty: true
