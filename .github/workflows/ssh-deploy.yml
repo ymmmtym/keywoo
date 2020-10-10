@@ -17,4 +17,4 @@ jobs:
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: rsync repository
-      run: rsync -acvz --delete . keywoo@keywoo.tokyo:~/keywoo
+      run: rsync -acvz --delete . keywoo@keywoo.tokyo:~
