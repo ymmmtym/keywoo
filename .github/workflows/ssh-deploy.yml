@@ -1,0 +1,24 @@
+name: SSH deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  ssh_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+        name: id_rsa
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    - name: rsync repository
+      run: rsync -acvz --delete . keywoo@keywoo.tokyo:~/keywoo
+    - name: restart compose
+      run: |
+        cd keywoo
+        sudo docker-compose restart

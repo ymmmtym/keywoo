@@ -1,5 +1,6 @@
 .DS_Store
 *.out
 __pycache__
+*.pyc
 *.db
 .venv
