@@ -8,7 +8,7 @@ ENV FLASK_APP="${APP}/run.py"
 COPY [".", "${APP}"]
 
 WORKDIR ${APP}
-RUN apk updatee && \
+RUN apk update && \
     apk add --no-cache gcc build-base linux-headers postgresql-libs && \
     apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
     apk --purge del .build-deps
