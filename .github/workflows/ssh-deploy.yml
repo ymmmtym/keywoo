@@ -18,7 +18,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-    - name: test
-      run: ls -la && pwd
-    # - name: rsync repository
-    #   run: rsync -acvz --delete . keywoo@keywoo.tokyo:~/keywoo
+    - name: rsync repository
+      run: rsync -acvz --delete . keywoo@keywoo.tokyo:~/keywoo
