@@ -1,11 +1,9 @@
-name: SSH deploy
-
+name: Deploy Site
 on:
   push:
     branches: [master]
-
 jobs:
-  ssh_deploy:
+  deploy_site:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
