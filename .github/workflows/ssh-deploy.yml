@@ -17,7 +17,7 @@ jobs:
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: rsync repository
-      run: rsync -rptgDvz --delete . keywoo@keywoo.tokyo:~/keywoo
+      run: rsync -av --delete . keywoo@keywoo.tokyo:~/keywoo
     - name: restart compose
       run: |
         ssh keywoo@keywoo.tokyo "cd keywoo && sudo docker-compose restart"
