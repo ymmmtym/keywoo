@@ -1,7 +1,7 @@
 name: Deploy Site
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   deploy_site:
     runs-on: ubuntu-latest
