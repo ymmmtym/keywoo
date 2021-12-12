@@ -15,7 +15,7 @@ jobs:
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: rsync repository
-      run: rsync -av --delete -o StrictHostKeyChecking=no --exclude-from=".gitignore" . keywoo@keywoo.yumenomatayume.net:~/keywoo
+      run: rsync -av --delete --exclude-from=".gitignore" . keywoo@keywoo.yumenomatayume.net:~/keywoo
     - name: restart compose
       run: |
-        ssh -o StrictHostKeyChecking=no keywoo@keywoo.yumenomatayume.net "cd keywoo && sudo docker-compose restart"
+        ssh keywoo@keywoo.yumenomatayume.net "cd keywoo && sudo docker-compose restart"
