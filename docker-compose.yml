@@ -4,6 +4,7 @@ services:
     image: postgres:9.6.17-alpine
     container_name: db
     tty: true
+    restart: always
     environment:
       POSTGRES_USER: keywoo
       POSTGRES_PASSWORD: keywoo
@@ -20,6 +21,7 @@ services:
     container_name: keywoo
     hostname: keywoo
     tty: true
+    restart: always
     links:
       - db
     volumes:
@@ -39,7 +41,7 @@ services:
       - keywoo
     restart: always
     environment:
-      DOMAINS: 'keywoo.tokyo -> http://keywoo:5000'
+      DOMAINS: 'keywoo.yumenomatayume.net -> http://keywoo:5000'
       STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
 

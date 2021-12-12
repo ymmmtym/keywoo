@@ -1,5 +1,5 @@
 FROM python:3.8.0-alpine3.10
-LABEL Maintainer="ymmmtym"
+LABEL maintainer.label="yumenomatayume"
 
 ENV HOSTNAME="keywoo" \
     APP="/opt/keywoo" \

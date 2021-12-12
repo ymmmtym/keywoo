@@ -6,7 +6,7 @@
 
 ## Site
 
-Access to <https://keywoo.tokyo>
+Access to <https://keywoo.yumenomatayume.net>
 
 ## Requirements
 
