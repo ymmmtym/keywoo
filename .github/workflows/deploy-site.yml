@@ -1,7 +1,7 @@
 name: Deploy Site
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   deploy_site:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: rsync repository
-      run: rsync -av --delete --exclude-from=".gitignore" . keywoo@keywoo.tokyo:~/keywoo
+      run: rsync -av --delete --exclude-from=".gitignore" . keywoo@keywoo.yumenomatayume.net:~/keywoo
     - name: restart compose
       run: |
-        ssh keywoo@keywoo.tokyo "cd keywoo && sudo docker-compose restart"
+        ssh keywoo@keywoo.yumenomatayume.net "cd keywoo && sudo docker-compose restart"
