@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required, current_user
-from werkzeug.security import generate_password_hash, check_password_hash
+from keywoo.passwords import generate_password_hash, check_password_hash, is_legacy_hash
 from keywoo import app, db
 from keywoo.models.sites import Site
 from keywoo.models.users import User
@@ -21,7 +21,7 @@ def signup():
             flash('お名前とパスワードを入力してください。')
             return redirect(url_for('signup'))
 
-        new_user = User(name=name, password=generate_password_hash(password, method='sha256'))
+        new_user = User(name=name, password=generate_password_hash(password))
         db.session.add(new_user)
         db.session.commit()
 
@@ -39,6 +39,9 @@ def login():
         if not user or not check_password_hash(user.password, password):
             flash('ユーザ名かパスワードが間違っています。')
             return redirect(url_for('login'))
+        if is_legacy_hash(user.password):
+            user.password = generate_password_hash(password)
+            db.session.commit()
         login_user(user, remember=remember)
         return redirect(url_for('index'))
     return render_template('/login.html')
