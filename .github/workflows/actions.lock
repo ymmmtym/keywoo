@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/bump-version.yml':
         - 'actions/checkout@v2'
         - 'actions/create-release@v1'
-        - 'mathieudutour/github-tag-action@v5.1'
+        - 'mathieudutour/github-tag-action@v5.6'
     '.github/workflows/codeql-analysis.yml':
         - 'actions/checkout@v2'
         - 'github/codeql-action@v1'
@@ -44,9 +44,9 @@ dependencies:
         commit: 'sha1-231aa2c8a89117b126725a0e11897209b7118144'
         owner_id: 9919
         repo_id: 259445878
-    'mathieudutour/github-tag-action@v5.1':
-        ref: 'v5.1'
-        commit: 'sha1-0c2a5f6346c10ac2d6dddd4b44a98b3c16ebc260'
+    'mathieudutour/github-tag-action@v5.6':
+        ref: 'v5.6'
+        commit: 'sha1-4c5d8c555a7cc4dca5e65d90b67dcddbb52ef77e'
         owner_id: 3254314
         repo_id: 218823535
     'shimataro/ssh-key-action@v2':
