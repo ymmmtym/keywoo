@@ -25,6 +25,9 @@ def check_password_hash(password_hash, password):
             return False
         _, salt, expected = parts
         # Werkzeug's former sha256 method used HMAC with the salt as its key.
+        # The weak hash is required to match the legacy format and only verifies
+        # existing hashes; accounts are rehashed with PBKDF2 on the next login.
+        # codeql[py/weak-sensitive-data-hashing]
         actual = hmac.new(salt.encode("utf-8"), password.encode("utf-8"), hashlib.sha256)
         return hmac.compare_digest(actual.hexdigest(), expected)
     return werkzeug_check_password_hash(password_hash, password)
