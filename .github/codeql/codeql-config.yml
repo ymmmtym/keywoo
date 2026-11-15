@@ -1,0 +1,10 @@
+name: "CodeQL config"
+
+# keywoo/passwords.py intentionally reproduces Werkzeug's historical salted
+# SHA256 HMAC to verify password hashes created before this upgrade; accounts
+# are rehashed with PBKDF2 on the next successful login. The weak hash is
+# required to read the legacy format, so exclude only that rule and keep the
+# rest of the security suite running.
+query-filters:
+  - exclude:
+      id: py/weak-sensitive-data-hashing
