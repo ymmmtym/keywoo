@@ -1,6 +1,6 @@
-FROM ghcr.io/astral-sh/uv:0.13.7 AS uv
+FROM ghcr.io/astral-sh/uv:0.13.8 AS uv
 
-FROM python:3.11-alpine
+FROM python:3.15-alpine
 LABEL maintainer.label="yumenomatayume"
 
 ENV HOSTNAME="keywoo" \

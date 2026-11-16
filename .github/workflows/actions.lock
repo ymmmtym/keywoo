@@ -6,10 +6,10 @@ workflows:
     '.github/workflows/bump-version.yml':
         - 'actions/checkout@v7'
         - 'actions/create-release@v1'
-        - 'mathieudutour/github-tag-action@v5.6'
+        - 'mathieudutour/github-tag-action@v7.0.0'
     '.github/workflows/codeql-analysis.yml':
         - 'actions/checkout@v7'
-        - 'github/codeql-action@v1'
+        - 'github/codeql-action@v4'
     '.github/workflows/deploy-site.yml':
         - 'actions/checkout@v7'
         - 'shimataro/ssh-key-action@v2'
@@ -18,7 +18,7 @@ workflows:
         - 'brpaz/hadolint-action@master'
     '.github/workflows/test.yml':
         - 'actions/checkout@v7'
-        - 'astral-sh/setup-uv@v5'
+        - 'astral-sh/setup-uv@v10.3.3'
     '.github/workflows/verify-actions-lock.yml':
         - 'actions/checkout@v7.0.1'
 dependencies:
@@ -37,9 +37,9 @@ dependencies:
         commit: 'sha1-0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e'
         owner_id: 44036562
         repo_id: 208154123
-    'astral-sh/setup-uv@v5':
-        ref: 'v5'
-        commit: 'sha1-d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86'
+    'astral-sh/setup-uv@v10.3.3':
+        ref: 'v10.3.3'
+        commit: 'sha1-68559e99cc807c1eb7e9238fd43a15bba460eec2'
         owner_id: 115962839
         repo_id: 846733598
     'brpaz/hadolint-action@master':
@@ -47,14 +47,14 @@ dependencies:
         commit: 'sha1-f49a60108f34b589e16e00be852f810e8ddb2484'
         owner_id: 184563
         repo_id: 368274147
-    'github/codeql-action@v1':
-        ref: 'v1'
-        commit: 'sha1-231aa2c8a89117b126725a0e11897209b7118144'
+    'github/codeql-action@v4':
+        ref: 'v4'
+        commit: 'sha1-33d7b85da1a04171e211befe2c739303b9a4c066'
         owner_id: 9919
         repo_id: 259445878
-    'mathieudutour/github-tag-action@v5.6':
-        ref: 'v5.6'
-        commit: 'sha1-4c5d8c555a7cc4dca5e65d90b67dcddbb52ef77e'
+    'mathieudutour/github-tag-action@v7.0.0':
+        ref: 'v7.0.0'
+        commit: 'sha1-af99e60ce8132224b8e6ebab5023449fe256ed46'
         owner_id: 3254314
         repo_id: 218823535
     'shimataro/ssh-key-action@v2':
