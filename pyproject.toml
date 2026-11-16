@@ -1,0 +1,31 @@
+[project]
+name = "keywoo"
+version = "0.0.14"
+description = "A small URL opener web app built with Flask."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "Click==8.5.1",
+    "Flask==2.3.3",
+    "Flask-Login==0.6.3",
+    "Flask-SQLAlchemy==3.1.1",
+    "itsdangerous==2.2.0",
+    "Jinja2==3.1.6",
+    "MarkupSafe==2.1.5",
+    "psycopg2==2.9.10",
+    "SQLAlchemy==2.0.36",
+    "uWSGI==2.0.31",
+    "Werkzeug==3.1.9",
+]
+
+[dependency-groups]
+dev = ["pytest>=7,<9"]
+
+[tool.uv]
+# The application is deployed as source, not installed as a package.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
