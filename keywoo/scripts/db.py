@@ -1,15 +1,14 @@
-from flask_script import Command
 from keywoo import db
 
 
-class InitDB(Command):
+class InitDB:
     "create database"
 
     def run(self):
         db.create_all()
 
 
-class DropDB(Command):
+class DropDB:
     "drop database"
 
     def run(self):

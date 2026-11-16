@@ -1,4 +1,4 @@
-FROM python:3.8.3-alpine3.10
+FROM python:3.11-alpine
 LABEL maintainer.label="yumenomatayume"
 
 ENV HOSTNAME="keywoo" \
