@@ -41,6 +41,10 @@ uv sync
 uv run pytest
 ```
 
+Coverage is measured automatically (via `pytest-cov`) and the run fails if total
+coverage drops below 80%. An HTML report can be generated with
+`uv run pytest --cov-report=html`, which writes to `htmlcov/`.
+
 ## Run (local)
 
 Provision a PostgreSQL server reachable from your host. For example, on Debian or

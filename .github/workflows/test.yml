@@ -19,5 +19,5 @@ jobs:
         run: uv python install
       - name: Install dependencies
         run: uv sync --locked
-      - name: Run tests
+      - name: Run tests with coverage
         run: uv run pytest
