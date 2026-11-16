@@ -1,4 +1,4 @@
-Click==8.1.8
+Click==8.5.1
 Flask==2.3.3
 Flask-Login==0.6.3
 Flask-SQLAlchemy==3.0.5
