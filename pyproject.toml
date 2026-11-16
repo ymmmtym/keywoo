@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest>=9,<10"]
+dev = ["pytest>=9,<10", "pytest-cov>=6,<7"]
 
 [tool.uv]
 # The application is deployed as source, not installed as a package.
@@ -29,3 +29,11 @@ package = false
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+addopts = "--cov=keywoo --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["keywoo"]
+
+[tool.coverage.report]
+# Fail the test run when coverage regresses below the current level.
+fail_under = 80
