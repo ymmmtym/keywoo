@@ -9,7 +9,7 @@ workflows:
         - 'mathieudutour/github-tag-action@v5.6'
     '.github/workflows/codeql-analysis.yml':
         - 'actions/checkout@v7'
-        - 'github/codeql-action@v1'
+        - 'github/codeql-action@v4'
     '.github/workflows/deploy-site.yml':
         - 'actions/checkout@v7'
         - 'shimataro/ssh-key-action@v2'
@@ -47,9 +47,9 @@ dependencies:
         commit: 'sha1-f49a60108f34b589e16e00be852f810e8ddb2484'
         owner_id: 184563
         repo_id: 368274147
-    'github/codeql-action@v1':
-        ref: 'v1'
-        commit: 'sha1-231aa2c8a89117b126725a0e11897209b7118144'
+    'github/codeql-action@v4':
+        ref: 'v4'
+        commit: 'sha1-33d7b85da1a04171e211befe2c739303b9a4c066'
         owner_id: 9919
         repo_id: 259445878
     'mathieudutour/github-tag-action@v5.6':
