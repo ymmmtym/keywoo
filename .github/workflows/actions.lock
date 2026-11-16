@@ -16,6 +16,9 @@ workflows:
     '.github/workflows/hadolint.yml':
         - 'actions/checkout@v7'
         - 'brpaz/hadolint-action@master'
+    '.github/workflows/test.yml':
+        - 'actions/checkout@v7'
+        - 'astral-sh/setup-uv@v5'
     '.github/workflows/verify-actions-lock.yml':
         - 'actions/checkout@v7.0.1'
 dependencies:
@@ -34,6 +37,11 @@ dependencies:
         commit: 'sha1-0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e'
         owner_id: 44036562
         repo_id: 208154123
+    'astral-sh/setup-uv@v5':
+        ref: 'v5'
+        commit: 'sha1-d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86'
+        owner_id: 115962839
+        repo_id: 846733598
     'brpaz/hadolint-action@master':
         ref: 'master'
         commit: 'sha1-f49a60108f34b589e16e00be852f810e8ddb2484'

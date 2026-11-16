@@ -6,12 +6,12 @@ from flask.config import Config
 original_from_object = Config.from_object
 
 
-def test_config(config, obj):
+def apply_test_config(config, obj):
     original_from_object(config, obj)
     config.update(SQLALCHEMY_DATABASE_URI='sqlite://', TESTING=True)
 
 
-with patch.object(Config, 'from_object', test_config):
+with patch.object(Config, 'from_object', apply_test_config):
     from keywoo import app, db
     from keywoo.models.users import User
     from keywoo.passwords import check_password_hash, generate_password_hash

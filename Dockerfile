@@ -1,19 +1,24 @@
+FROM ghcr.io/astral-sh/uv:0.13.7 AS uv
+
 FROM python:3.11-alpine
 LABEL maintainer.label="yumenomatayume"
 
 ENV HOSTNAME="keywoo" \
     APP="/opt/keywoo" \
-    PS1="[\u@\h \W]# "
+    PS1="[\u@\h \W]# " \
+    UV_PROJECT_ENVIRONMENT="/usr/local" \
+    UV_PYTHON_DOWNLOADS="never" \
+    UV_LINK_MODE="copy"
+
+COPY --from=uv /uv /uvx /bin/
 
 WORKDIR ${APP}
-COPY ["requirements.txt", "${APP}/requirements.txt"]
+COPY ["pyproject.toml", "uv.lock", "${APP}/"]
 
 RUN apk update && \
     apk add --no-cache gcc build-base linux-headers postgresql-libs && \
     apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
-    pip install --no-cache-dir -U pip && \
-    pip install --no-cache-dir -U setuptools && \
-    pip install -r requirements.txt --no-cache-dir && \
+    uv sync --frozen --no-dev && \
     apk --purge del .build-deps
 
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait

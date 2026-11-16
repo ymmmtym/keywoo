@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Install libpq (psycopg2 build dependency)
+        run: sudo apt-get update && sudo apt-get install -y libpq-dev
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Set up Python
+        run: uv python install
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Run tests
+        run: uv run pytest
