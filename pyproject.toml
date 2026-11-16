@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest>=9,<10", "pytest-cov>=6,<7"]
+dev = ["pytest>=9,<10", "pytest-cov>=7,<8"]
 
 [tool.uv]
 # The application is deployed as source, not installed as a package.
