@@ -10,7 +10,7 @@ Access to <https://keywoo.yumenomatayume.net>
 
 ## Requirements
 
-- [uv](https://docs.astral.sh/uv/) >= 0.4
+- [uv](https://docs.astral.sh/uv/) >= 0.4.27
 
 ## Setup
 
