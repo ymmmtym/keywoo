@@ -12,7 +12,7 @@ dependencies = [
     "Flask-SQLAlchemy==3.1.1",
     "itsdangerous==2.2.0",
     "Jinja2==3.1.6",
-    "MarkupSafe==2.1.5",
+    "MarkupSafe==3.0.4",
     "psycopg2==2.9.13",
     "SQLAlchemy==2.1.8",
     "uWSGI==2.0.31",
