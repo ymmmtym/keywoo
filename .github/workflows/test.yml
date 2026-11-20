@@ -14,7 +14,7 @@ jobs:
       - name: Install libpq (psycopg2 build dependency)
         run: sudo apt-get update && sudo apt-get install -y libpq-dev
       - name: Install uv
-        uses: astral-sh/setup-uv@v10.3.3
+        uses: astral-sh/setup-uv@v10.4.0
       - name: Set up Python
         run: uv python install
       - name: Install dependencies
